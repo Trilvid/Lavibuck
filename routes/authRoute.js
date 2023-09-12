@@ -208,6 +208,8 @@ router.post('/signin', authController.Login)
 router.post('/forgottenpassword', authController.forgotPassword)
 router.patch('/resetpassword/:token', authController.resetPassword)
 
+router.get('/allusers', authController.getAllUsers)
+
 // only logged in users have access to this routes
 router.use(authController.protect)
 router.patch('/updatepassword',
@@ -217,7 +219,7 @@ authController.updateMe)
 
 // only admins have access to this route
 router.use(authController.restrictTo("user", "admin"))
-router.get('/allusers', authController.getAllUsers)
+// router.get('/allusers', authController.getAllUsers)
 router.get('/:id', authController.protect, authController.getUser)
 
 

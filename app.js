@@ -45,6 +45,10 @@ app.use((err, req, res, next) => {
   res.send(err.message);
 });
 
+app.get('/', (req, res) => {
+  res.send("App is Up and running")
+})
+
 // 3) Routes
 app.use('/api/v1/auth', auth);
 app.use('/api/v1/users', auth);
